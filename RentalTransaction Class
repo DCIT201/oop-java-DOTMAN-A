@@ -1,0 +1,15 @@
+public class RentalTransaction {
+    private Vehicle vehicle;
+    private Customer customer;
+    private int days;
+    private double totalCost;
+
+    public RentalTransaction(Vehicle vehicle, Customer customer, int days) {
+        this.vehicle = vehicle;
+        this.customer = customer;
+        this.days = days;
+        this.totalCost = vehicle.calculateRentalCost(days);
+    }
+
+    // Getters and setters...
+}

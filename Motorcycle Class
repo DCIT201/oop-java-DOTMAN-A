@@ -1,0 +1,35 @@
+public class Motorcycle extends Vehicle {
+    private boolean hasHelmet;
+
+    public Motorcycle(String vehicleId, String model, double baseRentalRate, boolean isAvailable, boolean hasHelmet) {
+        super(vehicleId, model, baseRentalRate, isAvailable);
+        this.hasHelmet = hasHelmet;
+    }
+
+    public boolean hasHelmet() {
+        return hasHelmet;
+    }
+
+    public void setHasHelmet(boolean hasHelmet) {
+        this.hasHelmet = hasHelmet;
+    }
+
+    @Override
+    public double calculateRentalCost(int days) {
+        double cost = getBaseRentalRate() * days;
+        if (!hasHelmet) {
+            cost += 10 * days;  // Additional cost if helmet is not provided
+        }
+        return cost;
+    }
+
+    @Override
+    public boolean isAvailableForRental() {
+        return isAvailable();
+    }
+
+    @Override
+    public String toString() {
+        return "Motorcycle [vehicleId=" + getVehicleId() + ", model=" + getModel() + "]";
+    }
+}
